@@ -1,9 +1,9 @@
-
 package utils;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,6 +22,9 @@ public class FileScanner {
             byte[] content = fis.readAllBytes();
             String text = new String(content);
 
+            // Hashing
+            report.append("SHA-256 Hash: ").append(computeSHA256(content)).append("\n");
+
             boolean found = false;
             for (String keyword : SUSPICIOUS_KEYWORDS) {
                 if (text.toLowerCase().contains(keyword)) {
@@ -38,5 +41,19 @@ public class FileScanner {
         }
 
         return report.toString();
+    }
+
+    private static String computeSHA256(byte[] content) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(content);
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                hexString.append(String.format("%02x", b));
+            }
+            return hexString.toString();
+        } catch (Exception e) {
+            return "Error computing hash";
+        }
     }
 }

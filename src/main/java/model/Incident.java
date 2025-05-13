@@ -1,4 +1,3 @@
-
 package model;
 
 public abstract class Incident {
@@ -15,5 +14,6 @@ public abstract class Incident {
     public abstract void notifyResponseTeam();
 
     public String getId() { return id; }
+    public String getDescription() { return description; }
     public String getSeverity() { return severity; }
 }

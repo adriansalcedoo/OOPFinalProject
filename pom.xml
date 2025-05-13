@@ -15,6 +15,16 @@
     </properties>
 
     <dependencies>
-        <!-- No dependencies required for Swing -->
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.43.2.0</version>
+        </dependency>
+
     </dependencies>
 </project>

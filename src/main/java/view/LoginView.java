@@ -29,6 +29,7 @@ public class LoginView extends JFrame {
 
         loginButton.addActionListener((ActionEvent e) -> {
             if (authController.login(usernameField.getText(), new String(passwordField.getPassword()))) {
+                JOptionPane.showMessageDialog(this, "Login successful");
                 new DashboardView();
                 dispose();
             } else {
