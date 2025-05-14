@@ -9,76 +9,74 @@ Adrian Salcedo - backend/database development
 
 ---
 
-## Project Description
-
-**CyberSentinel** is a lightweight, desktop-based Cybersecurity Incident Tracker built using Java Swing. It allows organizations to log, monitor, and analyze security incidents in a structured and user-friendly manner. This tool is designed for internal cybersecurity teams to ensure incidents are properly recorded and escalated based on severity.
-
-Key features include:
-- User authentication system (Login/Sign-Up)
-- Real-time incident logging and monitoring
-- File security scanning
-- Role-based access control foundation
-- Extensible reporting architecture
+A Java Swing-based application for logging, detecting, and monitoring cybersecurity incidents. Designed with secure login, file scanning, and visual reporting to help simulate real-world incident response practices.
 
 ---
 
-## How to Run
+## 📋 Features
 
-### Requirements
+- 🔐 **Secure Authentication**
+  - User accounts with SHA-256 password hashing
+  - Users only see their own data (per-user isolation)
 
-- **JDK**: Java 17 or newer
-- **IDE**: IntelliJ IDEA (Recommended)
-- **Build Tool**: Maven (Bundled in IntelliJ)
-- **Libraries**: None (uses only built-in Java Swing and standard Java libraries)
+- 📝 **Incident Logging**
+  - Manual logging of incidents: Data Breach, Phishing, Malware, etc.
+  - Severity levels: Low, Medium, High
 
-### Setup Steps
+- 🧠 **Smart File Scanner**
+  - Scans uploaded files for suspicious patterns
+  - Auto-detects incident type (phishing, malware, DDoS, etc.)
+  - Notifies user and logs the threat
 
-1. **Download or Clone the Repository**
-   ```bash
-   git clone https://github.com/your-username/CyberSentinel.git
-   ```
+- 📊 **Dashboard + Visual Reports**
+  - Filter incidents by type/severity
+  - View summaries in a dynamic chart (separate tab)
+  - Export reports to `.txt`
 
-2. **Open in IntelliJ**
-   - Go to `File → Open` and select the project folder.
-   - Let IntelliJ import the Maven project.
-
-3. **Mark Resources Folder**
-   - Right-click `src/main/resources` → "Mark Directory as" → "Resources Root"
-
-4. **Run the App**
-   - Right-click `Main.java` → Run `Main`
+- 🌄 **Background Image**
+  - Custom background image for enhanced UI
 
 ---
 
-## Features Implemented
+## 🧠 OOP Principles Used
 
-- [x] **Login & Sign-Up** as separate windows
-- [x] **Incident Logging**: Log data breaches, phishing attempts
-- [x] **Real-Time Monitoring**: View incidents and their severity
-- [x] **File Scanner**: Scan any file for suspicious content (e.g., `eval(`, `password`, etc.)
-- [x] **OOP Principles Applied**:
-  - Encapsulation for user and incident data
-  - Inheritance for specific incident types
-  - Polymorphism for custom incident notifications
-  - Abstraction via the `IncidentManager` interface
-- [x] **Swing GUI**: Responsive and minimal interface
-- [x] **Background Image Support** for security dashboard
+| Principle      | Implementation Example |
+|----------------|------------------------|
+| **Inheritance**     | `PhishingAttempt` extends abstract `Incident` |
+| **Polymorphism**    | `incident.notifyResponseTeam()` dynamically resolved |
+| **Abstraction**     | `Incident` class defines abstract methods |
+| **Encapsulation**   | User data and passwords are private and accessed via methods |
 
----
 
-## Future Work
 
-- [ ] Add user roles (admin vs analyst) with access control
-- [ ] Export incident reports to PDF or CSV
-- [ ] Save incidents to a persistent database (PostgreSQL)
-- [ ] Real-time incident alerts via system tray or email
-- [ ] Improve file scanner with machine learning-based heuristics
 
----
+Run in IntelliJ or your IDE
+Open the project
 
-## Known Issues
+Make sure sqlite-jdbc and jfreechart are in your pom.xml dependencies
 
-- File scanner works best with text-based content; binary file analysis is limited.
-- No encryption or hashing is currently applied to stored passwords.
-- All data is held in-memory; closing the application erases all incidents/users.
-- 🖼If the background image doesn't display, check that `background.png` is placed in `src/main/resources` and marked as a resource folder.
+Run Main.java
+
+▶How to Run This Project
+Requirements
+Java JDK 17 or later
+
+Maven (or use IDE’s built-in Maven support)
+
+IntelliJ IDEA or any Java IDE
+
+SQLite JDBC driver (already included in pom.xml)
+
+Steps to Run
+Option A: Using IntelliJ IDEA (Recommended)
+Clone or download the project to your machine
+
+Open IntelliJ IDEA
+
+Select File > Open > select the project folder
+
+IntelliJ will detect it's a Maven project and resolve dependencies automatically
+
+Ensure the image VIRUS DETECTOR.png is in:
+
+Run Main.java 
